@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-import DrumPad from "./presentational/drumPad"
+import KeyPad from "./presentational/keypad"
+
 
 class App extends Component {
   render() {
@@ -12,9 +13,11 @@ class App extends Component {
           <div id = "pattern">
           </div>
           <button>refresh</button>
+          <p id = "display"></p>
         </header>
+
         <div id = "drumpads">
-          <DrumPad />
+          <KeyPad />
         </div>
         <footer>
           <p>This project uses React, Redux, Sass for CSS variables and has been deliberately designed to do more than the User Stories required. It will have an option 
