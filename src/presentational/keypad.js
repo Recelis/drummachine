@@ -26,16 +26,27 @@ const audioclip = {
     C: "Cev_H2"
 }
 
+const amazonURL = "https://s3.amazonaws.com/freecodecamp/drums/";
+
 export default class KeyPad extends Component {
     constructor(props) {
         super(props);
         this.state = {
 
         }
-       
+        const objectKeys = Object.keys(audioclip);
+        this.audioObj = {};
+        objectKeys.map(key=>{
+            this.audioObj[key] = new Audio(amazonURL +audioclip.key + ".mp3")    
+        });
+        
+        this.buttonPress = this.buttonPress.bind(this);
+    }
+    buttonPress(key) {
+        console.log("buttonPress here " + key);
+        this.audioObj.key.play()
     }
     render() {
-        const amazonURL = "https://s3.amazonaws.com/freecodecamp/drums/";
         return (
             <Grid>
                 <Grid item xs={12}>
