@@ -15,15 +15,15 @@ import TextField from '@material-ui/core/TextField';
 'https://s3.amazonaws.com/freecodecamp/drums/Cev_H2.mp3' */
 
 const audioclip = {
-    Q: "Header-1",
-    W: "Header-2",
-    E: "Header-3",
-    A: "Header-4",
-    S: "Header-6",
+    Q: "Heater-1",
+    W: "Heater-2",
+    E: "Heater-3",
+    A: "Heater-4_1",
+    S: "Heater-6",
     D: "Dsc_Oh",
     Z: "Kick_n_Hat",
     X: "RP4_KICK_1",
-    C: "Csv_H2"
+    C: "Cev_H2"
 }
 
 export default class KeyPad extends Component {
@@ -32,59 +32,57 @@ export default class KeyPad extends Component {
         this.state = {
 
         }
-        this.buttonPress = this.buttonPress.bind(this);
-    }
-    buttonPress(key) {
-        console.log("buttonPress here");
+       
     }
     render() {
+        const amazonURL = "https://s3.amazonaws.com/freecodecamp/drums/";
         return (
             <Grid>
                 <Grid item xs={12}>
                     <DrumPad
                         letter="Q"
-                        clip=""
+                        clip={amazonURL +audioclip.Q + ".mp3"}
                         clipName={audioclip.Q}
-                        buttonPress={this.buttonPress}
                     />
                     <DrumPad
                         letter="W"
-                        clip=""
+                        clip={amazonURL +audioclip.W + ".mp3"}
                         clipName={audioclip.W}
+                        
                     />
                     <DrumPad
                         letter="E"
-                        clip=""
+                        clip={amazonURL +audioclip.E + ".mp3"}
                         clipName={audioclip.E}
                     />
                     <DrumPad
                         letter="A"
-                        clip=""
+                        clip={amazonURL +audioclip.A + ".mp3"}
                         clipName={audioclip.A}
                     />
                     <DrumPad
                         letter="S"
-                        clip=""
+                        clip={amazonURL +audioclip.S + ".mp3"}
                         clipName={audioclip.S}
                     />
                     <DrumPad
                         letter="D"
-                        clip=""
+                        clip={amazonURL +audioclip.D + ".mp3"}
                         clipName={audioclip.D}
                     />
                     <DrumPad
                         letter="Z"
-                        clip=""
+                        clip={amazonURL +audioclip.Z + ".mp3"}
                         clipName={audioclip.Z}
                     />
                     <DrumPad
                         letter="X"
-                        clip=""
+                        clip={amazonURL +audioclip.X + ".mp3"}
                         clipName={audioclip.X}
                     />
                     <DrumPad
                         letter="C"
-                        clip=""
+                        clip={amazonURL +audioclip.C + ".mp3"}
                         clipName={audioclip.C}
                     />
                 </Grid>
