@@ -6,14 +6,29 @@ import KeyPad from "./presentational/keypad"
 
 
 class App extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+
+    }
+    this.record = this.record.bind(this);
+    this.refresh = this.refresh.bind(this);
+  }
+  refresh(){
+    console.log("refresh");
+  }
+  record(){
+    console.log("recording");
+  }
   render() {
     return (
       <div id="drum-machine">
         <header id = "sequence">
           <div id = "pattern">
           </div>
-          <button>refresh</button>
+          <button onClick = {this.refresh}>refresh</button>
           <p id = "display"></p>
+          <button onClick = {this.record}>Record</button>
         </header>
 
         <div id = "drumpads">

@@ -1,0 +1,32 @@
+export const ADD_SOUND = "ADD_SOUND";
+export const TOGGLE_RECORD = "TOGGLE_RECORD";
+export const DELETE_SOUND = "DELETE_SOUND";
+export const REFRESH_SEQUENCE = "REFRESH_SEQUENCE";
+
+// action creators
+export function addSound(sound, addID){
+    return{
+        type:ADD_SOUND,
+        id:addID,
+        sound
+    }
+}
+
+export function toggleRecord(){
+    return{
+        type:TOGGLE_RECORD
+    }
+}
+
+export function deleteSound(deleteID){
+    return{
+        type:DELETE_SOUND,
+        id:deleteID
+    }
+}
+
+export function refreshSequence(){
+    return{
+        type:REFRESH_SEQUENCE
+    }
+}

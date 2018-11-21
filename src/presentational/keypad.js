@@ -41,20 +41,20 @@ export default class KeyPad extends Component {
         });
         
         this.buttonPress = this.buttonPress.bind(this);
-        this.handleKeyBoard = this.handleKeyBoard.bind(this);
+        this.handleKeyPress = this.handleKeyPress.bind(this);
     }
     componentDidMount(){
-        document.addEventListener("keydown", this.handleKeyBoard, false);
+        document.addEventListener("keydown", this.handleKeyPress, false);
       }
       componentWillUnmount(){
-        document.removeEventListener("keydown", this.handleKeyBoard, false);
+        document.removeEventListener("keydown", this.handleKeyPress, false);
       }
     buttonPress(key) {
         console.log("buttonPress here " + key);
         console.log(this.audioObj[key]);
         this.audioObj[key].play()
     }
-    handleKeyBoard(event){
+    handleKeyPress(event){
         console.log(`Pressed keyCode ${event.key}`);
         let keyPressed = event.key.toLocaleUpperCase();
         if (keyPressed=== 'Q' || keyPressed === 'W' || keyPressed === 'E' 
@@ -62,66 +62,75 @@ export default class KeyPad extends Component {
         || keyPressed === 'Z' || keyPressed === 'X' || keyPressed === 'C'
         ){
             this.buttonPress(keyPressed);
+            this.setState({
+
+            })
         } return;
     }
     render() {
         return (
-            <Grid>
-                <Grid item xs={12}>
-                    <DrumPad
-                        letter="Q"
-                        clip={amazonURL +audioclip.Q + ".mp3"}
-                        clipName={audioclip.Q}
-                        buttonPress = {this.buttonPress}
-                    />
-                    <DrumPad
-                        letter="W"
-                        clip={amazonURL +audioclip.W + ".mp3"}
-                        clipName={audioclip.W}
-                        buttonPress = {this.buttonPress}
-                    />
-                    <DrumPad
-                        letter="E"
-                        clip={amazonURL +audioclip.E + ".mp3"}
-                        clipName={audioclip.E}
-                        buttonPress = {this.buttonPress}
-                    />
-                    <DrumPad
-                        letter="A"
-                        clip={amazonURL +audioclip.A + ".mp3"}
-                        clipName={audioclip.A}
-                        buttonPress = {this.buttonPress}
-                    />
-                    <DrumPad
-                        letter="S"
-                        clip={amazonURL +audioclip.S + ".mp3"}
-                        clipName={audioclip.S}
-                        buttonPress = {this.buttonPress}
-                    />
-                    <DrumPad
-                        letter="D"
-                        clip={amazonURL +audioclip.D + ".mp3"}
-                        clipName={audioclip.D}
-                        buttonPress = {this.buttonPress}
-                    />
-                    <DrumPad
-                        letter="Z"
-                        clip={amazonURL +audioclip.Z + ".mp3"}
-                        clipName={audioclip.Z}
-                        buttonPress = {this.buttonPress}
-                    />
-                    <DrumPad
-                        letter="X"
-                        clip={amazonURL +audioclip.X + ".mp3"}
-                        clipName={audioclip.X}
-                        buttonPress = {this.buttonPress}
-                    />
-                    <DrumPad
-                        letter="C"
-                        clip={amazonURL +audioclip.C + ".mp3"}
-                        clipName={audioclip.C}
-                        buttonPress = {this.buttonPress}
-                    />
+            <Grid container>
+                <Grid item xs = {12}>
+                    <Grid container spacing={0} justify="right">
+                        <DrumPad
+                            letter="Q"
+                            clip={amazonURL +audioclip.Q + ".mp3"}
+                            clipName={audioclip.Q}
+                            buttonPress = {this.buttonPress}
+                        />
+                        <DrumPad
+                            letter="W"
+                            clip={amazonURL +audioclip.W + ".mp3"}
+                            clipName={audioclip.W}
+                            buttonPress = {this.buttonPress}
+                        />
+                        <DrumPad
+                            letter="E"
+                            clip={amazonURL +audioclip.E + ".mp3"}
+                            clipName={audioclip.E}
+                            buttonPress = {this.buttonPress}
+                        />
+                    </Grid>
+                    <Grid container spacing={0} justify="center">
+                        <DrumPad
+                            letter="A"
+                            clip={amazonURL +audioclip.A + ".mp3"}
+                            clipName={audioclip.A}
+                            buttonPress = {this.buttonPress}
+                        />
+                        <DrumPad
+                            letter="S"
+                            clip={amazonURL +audioclip.S + ".mp3"}
+                            clipName={audioclip.S}
+                            buttonPress = {this.buttonPress}
+                        />
+                        <DrumPad
+                            letter="D"
+                            clip={amazonURL +audioclip.D + ".mp3"}
+                            clipName={audioclip.D}
+                            buttonPress = {this.buttonPress}
+                        />
+                    </Grid>
+                    <Grid container spacing={0} justify="center">
+                        <DrumPad
+                            letter="Z"
+                            clip={amazonURL +audioclip.Z + ".mp3"}
+                            clipName={audioclip.Z}
+                            buttonPress = {this.buttonPress}
+                        />
+                        <DrumPad
+                            letter="X"
+                            clip={amazonURL +audioclip.X + ".mp3"}
+                            clipName={audioclip.X}
+                            buttonPress = {this.buttonPress}
+                        />
+                        <DrumPad
+                            letter="C"
+                            clip={amazonURL +audioclip.C + ".mp3"}
+                            clipName={audioclip.C}
+                            buttonPress = {this.buttonPress}
+                        />
+                    </Grid>
                 </Grid>
             </Grid>
         )
