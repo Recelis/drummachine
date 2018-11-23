@@ -3,6 +3,10 @@ export const TOGGLE_RECORD = "TOGGLE_RECORD";
 export const DELETE_SOUND = "DELETE_SOUND";
 export const REFRESH_SEQUENCE = "REFRESH_SEQUENCE";
 
+export const DRUM_MACHINE_OFF = false;
+export const DRUM_MACHINE_ON = true;
+
+
 // action creators
 export function addSound(sound, addID){
     return{
