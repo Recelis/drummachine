@@ -1,8 +1,10 @@
 import React, { Component } from "react";
-import DrumPad from "./drumPad"
+import DrumPad from "./drumPad";
 
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
+import { store } from "../store";
+import { addSound } from "../actions/index";
 
 /* 'https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3'
 'https://s3.amazonaws.com/freecodecamp/drums/Heater-2.mp3'
@@ -31,16 +33,11 @@ const amazonURL = "https://s3.amazonaws.com/freecodecamp/drums/";
 export default class KeyPad extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-
-        }
         const objectKeys = Object.keys(audioclip);
         this.audioObj = {};
         objectKeys.map(key=>{
             this.audioObj[key] = new Audio(amazonURL +audioclip[key] + ".mp3")    
         });
-        
-        this.buttonPress = this.buttonPress.bind(this);
         this.handleKeyPress = this.handleKeyPress.bind(this);
     }
     componentDidMount(){
@@ -52,9 +49,10 @@ export default class KeyPad extends Component {
     buttonPress(key) {
         console.log("buttonPress here " + key);
         console.log(this.audioObj[key]);
-        this.audioObj[key].play()
+        this.audioObj[key].play();
+        store.dispatch(addSound(key.toLocaleUpperCase()));
     }
-    handleKeyPress(event){
+    handleKeyPress(event, addSoundToState){
         console.log(`Pressed keyCode ${event.key}`);
         let keyPressed = event.key.toLocaleUpperCase();
         if (keyPressed=== 'Q' || keyPressed === 'W' || keyPressed === 'E' 
@@ -62,9 +60,6 @@ export default class KeyPad extends Component {
         || keyPressed === 'Z' || keyPressed === 'X' || keyPressed === 'C'
         ){
             this.buttonPress(keyPressed);
-            this.setState({
-
-            })
         } return;
     }
     render() {
@@ -76,61 +71,61 @@ export default class KeyPad extends Component {
                             letter="Q"
                             clip={amazonURL +audioclip.Q + ".mp3"}
                             clipName={audioclip.Q}
-                            buttonPress = {this.buttonPress}
+                            onClick = {()=>this.buttonPress('Q')}
                         />
-                        <DrumPad
+                        {/* <DrumPad
                             letter="W"
                             clip={amazonURL +audioclip.W + ".mp3"}
                             clipName={audioclip.W}
-                            buttonPress = {this.buttonPress}
+                            onClick = {()=>this.buttonPress('Q')}
                         />
                         <DrumPad
                             letter="E"
                             clip={amazonURL +audioclip.E + ".mp3"}
                             clipName={audioclip.E}
-                            buttonPress = {this.buttonPress}
-                        />
+                            onClick = {()=>this.buttonPress('Q')}
+                        /> */}
                     </Grid>
-                    <Grid container spacing={0} justify="center">
+                    {/* <Grid container spacing={0} justify="center">
                         <DrumPad
                             letter="A"
                             clip={amazonURL +audioclip.A + ".mp3"}
                             clipName={audioclip.A}
-                            buttonPress = {this.buttonPress}
+                            onClick = {()=>this.buttonPress('Q')}
                         />
                         <DrumPad
                             letter="S"
                             clip={amazonURL +audioclip.S + ".mp3"}
                             clipName={audioclip.S}
-                            buttonPress = {this.buttonPress}
+                            onClick = {()=>this.buttonPress('Q')}
                         />
                         <DrumPad
                             letter="D"
                             clip={amazonURL +audioclip.D + ".mp3"}
                             clipName={audioclip.D}
-                            buttonPress = {this.buttonPress}
+                            onClick = {()=>this.buttonPress('Q')}
                         />
-                    </Grid>
-                    <Grid container spacing={0} justify="center">
+                    </Grid> */}
+                    {/* <Grid container spacing={0} justify="center">
                         <DrumPad
                             letter="Z"
                             clip={amazonURL +audioclip.Z + ".mp3"}
                             clipName={audioclip.Z}
-                            buttonPress = {this.buttonPress}
+                            onClick = {()=>this.buttonPress('Q')}
                         />
                         <DrumPad
                             letter="X"
                             clip={amazonURL +audioclip.X + ".mp3"}
                             clipName={audioclip.X}
-                            buttonPress = {this.buttonPress}
+                            onClick = {()=>this.buttonPress('Q')}
                         />
                         <DrumPad
                             letter="C"
                             clip={amazonURL +audioclip.C + ".mp3"}
                             clipName={audioclip.C}
-                            buttonPress = {this.buttonPress}
+                            onClick = {()=>this.buttonPress('Q')}
                         />
-                    </Grid>
+                    </Grid> */}
                 </Grid>
             </Grid>
         )

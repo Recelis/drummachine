@@ -8,10 +8,9 @@ export const DRUM_MACHINE_ON = true;
 
 
 // action creators
-export function addSound(sound, addID){
+export function addSound(sound){
     return{
         type:ADD_SOUND,
-        id:addID,
         sound
     }
 }

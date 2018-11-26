@@ -2,12 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import drumApp from "./reducers/index";
-import { createStore } from "redux";
+import { store } from "./store/index";
 import { Provider } from "react-redux";
 import * as serviceWorker from './serviceWorker';
-
-const store = createStore(drumApp);
 
 ReactDOM.render(
     <Provider store = {store}>
