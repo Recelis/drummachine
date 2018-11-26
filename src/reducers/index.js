@@ -37,10 +37,23 @@ function drumSounds(state = [], action){
     }
 }
 
-function drumMachine(state = DRUM_MACHINE_OFF, action){
+const initialState = {
+    record:DRUM_MACHINE_OFF,
+    text:"START RECORDING"
+}
+
+function drumMachine(state = initialState, action){
     switch(action.type){
         case TOGGLE_RECORD:
-            return !state; 
+                if (state.record) 
+                    return Object.assign({}, state,{
+                        record:DRUM_MACHINE_OFF,
+                        text:"STOP RECORDING"
+                    });
+                else return Object.assign({}, state,{
+                    record:DRUM_MACHINE_ON,
+                    text:"START RECORDING"
+                }) 
         default:
             return state;
     }

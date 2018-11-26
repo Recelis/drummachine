@@ -1,16 +1,13 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
-import KeyPad from "./presentational/keypad"
 
+import KeyPad from "./presentational/keypad";
+import Record from "./container/record";
 
 class App extends Component {
   constructor(props){
     super(props);
-    this.state = {
-
-    }
     this.record = this.record.bind(this);
     this.refresh = this.refresh.bind(this);
   }
@@ -28,7 +25,7 @@ class App extends Component {
           </div>
           <button onClick = {this.refresh}>refresh</button>
           <p id = "display"></p>
-          <button onClick = {this.record}>Record</button>
+          <Record/>
         </header>
 
         <div id = "drumpads">
