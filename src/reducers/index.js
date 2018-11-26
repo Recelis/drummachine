@@ -48,11 +48,11 @@ function drumMachine(state = initialState, action){
                 if (state.record) 
                     return Object.assign({}, state,{
                         record:DRUM_MACHINE_OFF,
-                        text:"STOP RECORDING"
+                        text:"START RECORDING"
                     });
                 else return Object.assign({}, state,{
                     record:DRUM_MACHINE_ON,
-                    text:"START RECORDING"
+                    text:"STOP RECORDING"
                 }) 
         default:
             return state;

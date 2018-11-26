@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 
 
-import KeyPad from "./presentational/keypad";
+import Keys from "./container/keys";
 import Record from "./container/record";
 
 class App extends Component {
@@ -29,7 +29,7 @@ class App extends Component {
         </header>
 
         <div id = "drumpads">
-          <KeyPad />
+          <Keys />
         </div>
         <footer>
           <p>This project uses React, Redux, Sass for CSS variables or Material UI (styling typically comes last in the development process) and has been deliberately designed to do more than the User Stories required. It will have an option 
