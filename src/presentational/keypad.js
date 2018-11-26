@@ -49,9 +49,12 @@ export default class KeyPad extends Component {
     buttonPress(key) {
         console.log("buttonPress here " + key);
         console.log(this.audioObj[key]);
+        this.audioObj[key].currentTime = 0; // resets sound so that you play from beginning
         this.audioObj[key].play();
         (this.props.allowRecord) && this.props.addSoundToState(key.toLocaleUpperCase());
     }
+
+    /* pass keyboard press to this.buttonPress */
     handleKeyPress(event, addSoundToState){
         console.log(`Pressed keyCode ${event.key}`);
         let keyPressed = event.key.toLocaleUpperCase();
