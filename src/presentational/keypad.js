@@ -73,59 +73,59 @@ export default class KeyPad extends Component {
                             clipName={audioclip.Q}
                             onClick = {()=>this.buttonPress('Q')}
                         />
-                        {/* <DrumPad
+                        <DrumPad
                             letter="W"
                             clip={amazonURL +audioclip.W + ".mp3"}
                             clipName={audioclip.W}
-                            onClick = {()=>this.buttonPress('Q')}
+                            onClick = {()=>this.buttonPress('W')}
                         />
                         <DrumPad
                             letter="E"
                             clip={amazonURL +audioclip.E + ".mp3"}
                             clipName={audioclip.E}
-                            onClick = {()=>this.buttonPress('Q')}
-                        /> */}
+                            onClick = {()=>this.buttonPress('E')}
+                        />
                     </Grid>
-                    {/* <Grid container spacing={0} justify="center">
+                    <Grid container spacing={0} justify="center">
                         <DrumPad
                             letter="A"
                             clip={amazonURL +audioclip.A + ".mp3"}
                             clipName={audioclip.A}
-                            onClick = {()=>this.buttonPress('Q')}
+                            onClick = {()=>this.buttonPress('A')}
                         />
                         <DrumPad
                             letter="S"
                             clip={amazonURL +audioclip.S + ".mp3"}
                             clipName={audioclip.S}
-                            onClick = {()=>this.buttonPress('Q')}
+                            onClick = {()=>this.buttonPress('S')}
                         />
                         <DrumPad
                             letter="D"
                             clip={amazonURL +audioclip.D + ".mp3"}
                             clipName={audioclip.D}
-                            onClick = {()=>this.buttonPress('Q')}
+                            onClick = {()=>this.buttonPress('D')}
                         />
-                    </Grid> */}
-                    {/* <Grid container spacing={0} justify="center">
+                    </Grid>
+                    <Grid container spacing={0} justify="center">
                         <DrumPad
                             letter="Z"
                             clip={amazonURL +audioclip.Z + ".mp3"}
                             clipName={audioclip.Z}
-                            onClick = {()=>this.buttonPress('Q')}
+                            onClick = {()=>this.buttonPress('Z')}
                         />
                         <DrumPad
                             letter="X"
                             clip={amazonURL +audioclip.X + ".mp3"}
                             clipName={audioclip.X}
-                            onClick = {()=>this.buttonPress('Q')}
+                            onClick = {()=>this.buttonPress('X')}
                         />
                         <DrumPad
                             letter="C"
                             clip={amazonURL +audioclip.C + ".mp3"}
                             clipName={audioclip.C}
-                            onClick = {()=>this.buttonPress('Q')}
+                            onClick = {()=>this.buttonPress('C')}
                         />
-                    </Grid> */}
+                    </Grid>
                 </Grid>
             </Grid>
         )

@@ -22,7 +22,7 @@ function drumSounds(state = [], action){
             return [
                 ...state,
                 {   
-                    id:state.length-1,
+                    id:state.length,
                     sound:action.sound
                 }
             ]
