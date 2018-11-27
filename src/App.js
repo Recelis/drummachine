@@ -4,6 +4,7 @@ import './App.css';
 
 import Keys from "./container/keys";
 import Record from "./container/record";
+import Refresh from "./container/refresh";
 
 class App extends Component {
   constructor(props){
@@ -32,7 +33,7 @@ class App extends Component {
         </div>
         <button id = "play">play</button>
         <p id = "display"></p>
-        <button onClick = {this.refresh}>refresh</button>
+        <Refresh/>
         <footer>
           <p>This project uses React, Redux, Sass for CSS variables or Material UI (styling typically comes last in the development process) and has been deliberately designed to do more than the User Stories required. It will have an option 
           for saving user inputs, and for automatic replaying. This will ensure that Redux will have to be used in this project.</p>

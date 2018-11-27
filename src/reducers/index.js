@@ -24,7 +24,7 @@ function drumSounds(state = [], action){
 
             ]
         case REFRESH_SEQUENCE:
-            return []
+            return [];
         default:
             return state;
     }
