@@ -64,7 +64,7 @@ export default class KeyPad extends Component {
         console.log(this.audioObj[key]);
         this.audioObj[key].currentTime = 0; // resets sound so that you play from beginning
         this.audioObj[key].play();
-        (this.props.allowRecord) && this.props.addSoundToState(key.toLocaleUpperCase());
+        this.props.addSoundToState(key.toLocaleUpperCase());
         // change colours on buttons
         let newKeyState = {};
         newKeyState[key] = "clicked";
@@ -77,15 +77,15 @@ export default class KeyPad extends Component {
     }
 
     /* pass keyboard press to this.buttonPress */
-    handleKeyPress(event, addSoundToState){
-        console.log(`Pressed keyCode ${event.key}`);
+    handleKeyPress(event){
+        // check that record button has been pressed
+        if (!this.props.allowRecord) return; 
         let keyPressed = event.key.toLocaleUpperCase();
         if (keyPressed=== 'Q' || keyPressed === 'W' || keyPressed === 'E' 
         || keyPressed === 'A' || keyPressed === 'S' || keyPressed === 'D'
         || keyPressed === 'Z' || keyPressed === 'X' || keyPressed === 'C'
-        ){
-            this.buttonPress(keyPressed);
-        } return;
+        ) this.buttonPress(keyPressed); 
+        return;
     }
 
     render() {
@@ -99,6 +99,7 @@ export default class KeyPad extends Component {
                             clipName={audioclip.Q}
                             onClick = {()=>this.buttonPress('Q')}
                             buttonStatus = {this.state.Q}
+                            onStatus = {this.props.allowRecord}
                         />
                         <DrumPad
                             letter="W"
@@ -106,6 +107,7 @@ export default class KeyPad extends Component {
                             clipName={audioclip.W}
                             onClick = {()=>this.buttonPress('W')}
                             buttonStatus = {this.state.W}
+                            onStatus = {this.props.allowRecord}
                         />
                         <DrumPad
                             letter="E"
@@ -113,6 +115,7 @@ export default class KeyPad extends Component {
                             clipName={audioclip.E}
                             onClick = {()=>this.buttonPress('E')}
                             buttonStatus = {this.state.E}
+                            onStatus = {this.props.allowRecord}
                         />
                     </Grid>
                     <Grid container spacing={0} justify="center">
@@ -122,6 +125,7 @@ export default class KeyPad extends Component {
                             clipName={audioclip.A}
                             onClick = {()=>this.buttonPress('A')}
                             buttonStatus = {this.state.A}
+                            onStatus = {this.props.allowRecord}
                         />
                         <DrumPad
                             letter="S"
@@ -129,6 +133,7 @@ export default class KeyPad extends Component {
                             clipName={audioclip.S}
                             onClick = {()=>this.buttonPress('S')}
                             buttonStatus = {this.state.S}
+                            onStatus = {this.props.allowRecord}
                         />
                         <DrumPad
                             letter="D"
@@ -136,6 +141,7 @@ export default class KeyPad extends Component {
                             clipName={audioclip.D}
                             onClick = {()=>this.buttonPress('D')}
                             buttonStatus = {this.state.D}
+                            onStatus = {this.props.allowRecord}
                         />
                     </Grid>
                     <Grid container spacing={0} justify="center">
@@ -145,6 +151,7 @@ export default class KeyPad extends Component {
                             clipName={audioclip.Z}
                             onClick = {()=>this.buttonPress('Z')}
                             buttonStatus = {this.state.Z}
+                            onStatus = {this.props.allowRecord}
                         />
                         <DrumPad
                             letter="X"
@@ -152,6 +159,7 @@ export default class KeyPad extends Component {
                             clipName={audioclip.X}
                             onClick = {()=>this.buttonPress('X')}
                             buttonStatus = {this.state.X}
+                            onStatus = {this.props.allowRecord}
                         />
                         <DrumPad
                             letter="C"
@@ -159,6 +167,7 @@ export default class KeyPad extends Component {
                             clipName={audioclip.C}
                             onClick = {()=>this.buttonPress('C')}
                             buttonStatus = {this.state.C}
+                            onStatus = {this.props.allowRecord}
                         />
                     </Grid>
                 </Grid>
