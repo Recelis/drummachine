@@ -8,7 +8,7 @@ const DrumPad = (props)=> {
     // console.log(onClick);
     return (
         <Grid item xs={4} className="drum-pad">
-            <Button variant="outlined" className={'button'} onClick = {props.onClick}>
+            <Button variant="outlined" className={props.buttonStatus} onClick = {props.onClick}>
                 <audio>
                     <source src={props.clip}></source>
                 </audio>
