@@ -18,14 +18,7 @@ import { combineReducers } from "redux";
 function drumSounds(state = [], action){
     switch(action.type){
         case ADD_SOUND:
-            console.log("changing sound!");
-            return [
-                ...state,
-                {   
-                    id:state.length,
-                    sound:action.sound
-                }
-            ]
+            return state.concat(action.sound);
         case DELETE_SOUND:
             return [
 

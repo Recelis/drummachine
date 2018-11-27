@@ -38,3 +38,12 @@
 .unclicked{
   background-color:white;
 }
+
+.recordOn{
+  background-color:blueviolet !important;
+  color:white !important;
+}
+
+.recordOff{
+  background-color:white;
+}

@@ -4,7 +4,10 @@ import RecordButton from "../presentational/recordButton";
 import { toggleRecord } from "../actions";
 
 const mapStateToProps = (state) => {
-    return { text: state.drumMachine.text }
+    return { 
+        text: state.drumMachine.text,
+        recordStatus: state.drumMachine.record 
+    }
 };
 
 const mapDispatchToProps = (dispatch) => {
