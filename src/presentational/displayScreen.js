@@ -1,9 +1,20 @@
 import React, { Component } from "react";
 
-const DisplayScreen = (props) => {
+import Button from '@material-ui/core/Button';
 
-    return (
-        <div></div>
+ const DisplayScreen = (props)=>{
+    let sequence = props.sequence.map((sound, index)=>
+        (sound[Object.keys(sound)] === "closed") ?
+        <li><Button onClick = {()=>props.prepareToDelete(Object.keys(sound),index)}>{Object.keys(sound)}</Button></li>
+        :
+        <li>
+            <Button onClick = {()=>props.prepareToDelete(Object.keys(sound),index)}>{Object.keys(sound)}</Button> 
+            <Button onClick = {()=>props.deleteThisSound(index)}>X</Button>
+
+        </li>
+    );
+    return(
+        <ul>{sequence}</ul>
     )
 }
 

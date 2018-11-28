@@ -5,6 +5,7 @@ import './App.css';
 import Keys from "./container/keys";
 import Record from "./container/record";
 import Refresh from "./container/refresh";
+import Display from "./container/display";
 
 class App extends Component {
   constructor(props){
@@ -32,7 +33,8 @@ class App extends Component {
           <Keys />
         </div>
         <button id = "play">play</button>
-        <p id = "display"></p>
+        <p id = "display">Pattern</p>
+        <Display/>
         <Refresh/>
         <footer>
           <p>This project uses React, Redux, Sass for CSS variables or Material UI (styling typically comes last in the development process) and has been deliberately designed to do more than the User Stories required. It will have an option 

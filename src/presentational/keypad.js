@@ -2,9 +2,6 @@ import React, { Component } from "react";
 import DrumPad from "./drumPad";
 
 import Grid from '@material-ui/core/Grid';
-import TextField from '@material-ui/core/TextField';
-import { store } from "../store";
-import { addSound } from "../actions/index";
 
 /* 'https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3'
 'https://s3.amazonaws.com/freecodecamp/drums/Heater-2.mp3'

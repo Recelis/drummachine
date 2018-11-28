@@ -4,8 +4,11 @@ import {
     TOGGLE_RECORD,
     DELETE_SOUND,
     REFRESH_SEQUENCE,
+    READY_TO_DELETE,
     DRUM_MACHINE_OFF,
     DRUM_MACHINE_ON,
+    CLOSED_TO_DELETE,
+    OPEN_TO_DELETE
 } from "../actions/index";
 
 import { combineReducers } from "redux";
@@ -18,13 +21,26 @@ import { combineReducers } from "redux";
 function drumSounds(state = [], action){
     switch(action.type){
         case ADD_SOUND:
-            return state.concat(action.sound);
+            let newSound = {};
+            newSound[action.sound] = CLOSED_TO_DELETE;
+            return state.concat(newSound);
         case DELETE_SOUND:
-            return [
-
-            ]
+            console.log(state.slice(0, action.index));
+            console.log(state.slice(action.index+1));
+            let newState = state.slice(0, action.index).concat(state.slice(action.index+1));
+            return newState;
         case REFRESH_SEQUENCE:
             return [];
+        case READY_TO_DELETE:
+            let input = state.slice();
+            if (input.length > 0){
+                if (input[action.index][action.sound] === CLOSED_TO_DELETE){
+                    input[action.index][action.sound] = OPEN_TO_DELETE;
+                } else {
+                    input[action.index][action.sound] = CLOSED_TO_DELETE;
+                }
+            }
+            return input;
         default:
             return state;
     }
