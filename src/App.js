@@ -6,6 +6,7 @@ import Keys from "./container/keys";
 import Record from "./container/record";
 import Refresh from "./container/refresh";
 import Display from "./container/display";
+import Play from "./container/play";
 
 class App extends Component {
   constructor(props){
@@ -32,7 +33,7 @@ class App extends Component {
         <div id = "drumpads">
           <Keys />
         </div>
-        <button id = "play">play</button>
+        <Play />
         <p id = "display">Pattern</p>
         <Display/>
         <Refresh/>
