@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 
 import Button from '@material-ui/core/Button';
-import { audioclip} from '../audioclip';
-import { amazonURL } from '../audioclip';
-import { audioObj } from '../audioclip';
+import { playSound } from '../audioclip';
 let playback = {};
 
 export default class PlayButton extends Component {
@@ -25,8 +23,7 @@ export default class PlayButton extends Component {
         }
         let ii = 0;
         playback = setInterval(()=>{
-            audioObj()[sequenceKeys[ii]].currentTime = 0;
-            audioObj()[sequenceKeys[ii]].play();
+            playSound(sequenceKeys[ii]);
             ii++;
             if (ii >= seqLen) clearInterval(playback);
         }, 500);

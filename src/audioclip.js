@@ -21,3 +21,8 @@ export const audioObj = () => {
   });
   return obj;
 };
+
+export const playSound = (key)=> {
+    audioObj()[key].currentTime = 0; // resets sound so that you play from beginning
+    audioObj()[key].play();
+}
