@@ -4,6 +4,7 @@ import Button from '@material-ui/core/Button';
 import { audioclip} from '../audioclip';
 import { amazonURL } from '../audioclip';
 import { audioObj } from '../audioclip';
+let playback = {};
 
 export default class PlayButton extends Component {
     constructor(props){
@@ -23,7 +24,7 @@ export default class PlayButton extends Component {
             sequenceKeys.push(...Object.keys(seq[ii])); // should change this data structure so that key isn't button
         }
         let ii = 0;
-        let playback = setInterval(()=>{
+        playback = setInterval(()=>{
             audioObj()[sequenceKeys[ii]].currentTime = 0;
             audioObj()[sequenceKeys[ii]].play();
             ii++;
@@ -31,7 +32,8 @@ export default class PlayButton extends Component {
         }, 500);
     }
     stopSequence(){
-
+        console.log('stopping playback');
+        clearInterval(playback);
     }
     render(){
         return (
