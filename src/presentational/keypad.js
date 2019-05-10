@@ -37,10 +37,6 @@ export default class KeyPad extends Component {
   componentWillUnmount() {
     document.removeEventListener("keydown", this.handleKeyPress, false);
   }
-  buttonPress(key) {
-    // change colours on buttons
-    this.keyActivity(key);
-  }
 
   /* pass keyboard press to this.buttonPress */
   handleKeyPress(event) {
@@ -53,7 +49,6 @@ export default class KeyPad extends Component {
         this.keyActivity(key);
       }
     });
-    return;
   }
 
   keyActivity(key) {
@@ -77,19 +72,19 @@ export default class KeyPad extends Component {
           <Grid container spacing={0} justify="right">
             <DrumPad
               letter="Q"
-              onClick={() => this.buttonPress("Q")}
+              onClick={() => this.keyActivity("Q")}
               buttonStatus={this.state.Q}
               onStatus={this.props.allowRecord}
             />
             <DrumPad
               letter="W"
-              onClick={() => this.buttonPress("W")}
+              onClick={() => this.keyActivity("W")}
               buttonStatus={this.state.W}
               onStatus={this.props.allowRecord}
             />
             <DrumPad
               letter="E"
-              onClick={() => this.buttonPress("E")}
+              onClick={() => this.keyActivity("E")}
               buttonStatus={this.state.E}
               onStatus={this.props.allowRecord}
             />
@@ -97,19 +92,19 @@ export default class KeyPad extends Component {
           <Grid container spacing={0} justify="center">
             <DrumPad
               letter="A"
-              onClick={() => this.buttonPress("A")}
+              onClick={() => this.keyActivity("A")}
               buttonStatus={this.state.A}
               onStatus={this.props.allowRecord}
             />
             <DrumPad
               letter="S"
-              onClick={() => this.buttonPress("S")}
+              onClick={() => this.keyActivity("S")}
               buttonStatus={this.state.S}
               onStatus={this.props.allowRecord}
             />
             <DrumPad
               letter="D"
-              onClick={() => this.buttonPress("D")}
+              onClick={() => this.keyActivity("D")}
               buttonStatus={this.state.D}
               onStatus={this.props.allowRecord}
             />
@@ -117,19 +112,19 @@ export default class KeyPad extends Component {
           <Grid container spacing={0} justify="center">
             <DrumPad
               letter="Z"
-              onClick={() => this.buttonPress("Z")}
+              onClick={() => this.keyActivity("Z")}
               buttonStatus={this.state.Z}
               onStatus={this.props.allowRecord}
             />
             <DrumPad
               letter="X"
-              onClick={() => this.buttonPress("X")}
+              onClick={() => this.keyActivity("X")}
               buttonStatus={this.state.X}
               onStatus={this.props.allowRecord}
             />
             <DrumPad
               letter="C"
-              onClick={() => this.buttonPress("C")}
+              onClick={() => this.keyActivity("C")}
               buttonStatus={this.state.C}
               onStatus={this.props.allowRecord}
             />
