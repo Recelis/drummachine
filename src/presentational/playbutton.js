@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 
 import Button from '@material-ui/core/Button';
+import { audioclip} from '../audioclip';
+import { amazonURL } from '../audioclip';
+import { audioObj } from '../audioclip';
 
 export default class PlayButton extends Component {
     constructor(props){
@@ -9,7 +12,6 @@ export default class PlayButton extends Component {
         this.stopSequence = this.stopSequence.bind(this);
     }
     playSequence(){
-        console.log(this.props.sequence);
         // pass to local values
         let seq = this.props.sequence;
         let seqLen = seq.length;
@@ -18,13 +20,15 @@ export default class PlayButton extends Component {
         // extract from array ( really stupid code )
         let sequenceKeys = [];
         for (let ii =0; ii < seqLen; ii ++) {
-            sequenceKeys.push(...Object.keys(seq[ii]));
+            sequenceKeys.push(...Object.keys(seq[ii])); // should change this data structure so that key isn't button
         }
-        // play sequence
-            
-
-        console.log(sequenceKeys);
-        // 
+        let ii = 0;
+        let playback = setInterval(()=>{
+            audioObj()[sequenceKeys[ii]].currentTime = 0;
+            audioObj()[sequenceKeys[ii]].play();
+            ii++;
+            if (ii >= seqLen) clearInterval(playback);
+        }, 500);
     }
     stopSequence(){
 

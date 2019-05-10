@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import DrumPad from "./drumPad";
 
 import Grid from '@material-ui/core/Grid';
+import { audioclip } from '../audioclip';
+import { amazonURL } from '../audioclip';
 
 /* 'https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3'
 'https://s3.amazonaws.com/freecodecamp/drums/Heater-2.mp3'
@@ -13,19 +15,6 @@ import Grid from '@material-ui/core/Grid';
 'https://s3.amazonaws.com/freecodecamp/drums/RP4_KICK_1.mp3'
 'https://s3.amazonaws.com/freecodecamp/drums/Cev_H2.mp3' */
 
-const audioclip = {
-    Q: "Heater-1",
-    W: "Heater-2",
-    E: "Heater-3",
-    A: "Heater-4_1",
-    S: "Heater-6",
-    D: "Dsc_Oh",
-    Z: "Kick_n_Hat",
-    X: "RP4_KICK_1",
-    C: "Cev_H2"
-}
-
-const amazonURL = "https://s3.amazonaws.com/freecodecamp/drums/";
 
 export default class KeyPad extends Component {
     constructor(props) {
