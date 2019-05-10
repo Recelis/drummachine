@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import DrumPad from "./drumPad";
 
 import Grid from '@material-ui/core/Grid';
-import { audioclip } from '../audioclip';
-import { amazonURL } from '../audioclip';
+import { audioObj } from '../audioclip';
 
 /* 'https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3'
 'https://s3.amazonaws.com/freecodecamp/drums/Heater-2.mp3'
@@ -30,12 +29,6 @@ export default class KeyPad extends Component {
             X: "unclicked",
             C: "unclicked"
         }
-        // Audio Setup
-        const objectKeys = Object.keys(audioclip);
-        this.audioObj = {};
-        objectKeys.map(key => {
-            this.audioObj[key] = new Audio(amazonURL + audioclip[key] + ".mp3")
-        });
         // BINDINGS
         this.handleKeyPress = this.handleKeyPress.bind(this);
     }
@@ -46,10 +39,12 @@ export default class KeyPad extends Component {
         document.removeEventListener("keydown", this.handleKeyPress, false);
     }
     buttonPress(key) {
-        this.audioObj[key].currentTime = 0; // resets sound so that you play from beginning
-        this.audioObj[key].play();
+        audioObj()[key].currentTime = 0; // resets sound so that you play from beginning
+        audioObj()[key].play();
         this.props.addSoundToState(key.toLocaleUpperCase());
         // change colours on buttons
+
+        // call an action
         let newKeyState = {};
         newKeyState[key] = "clicked";
         this.setState(newKeyState, () =>
@@ -65,10 +60,10 @@ export default class KeyPad extends Component {
         // check that record button has been pressed
         if (!this.props.allowRecord) return;
         let keyPressed = event.key.toLocaleUpperCase();
-        if (keyPressed === 'Q' || keyPressed === 'W' || keyPressed === 'E'
-            || keyPressed === 'A' || keyPressed === 'S' || keyPressed === 'D'
-            || keyPressed === 'Z' || keyPressed === 'X' || keyPressed === 'C'
-        ) this.buttonPress(keyPressed);
+        let importantKeys = ['Q', 'W', 'E', 'A', 'S', 'D', 'Z', 'X', 'C'];
+        importantKeys.map(key => {
+            if (key == keyPressed) this.buttonPress(keyPressed);
+        })
         return;
     }
 
@@ -79,24 +74,18 @@ export default class KeyPad extends Component {
                     <Grid container spacing={0} justify="right">
                         <DrumPad
                             letter="Q"
-                            clip={amazonURL + audioclip.Q + ".mp3"}
-                            clipName={audioclip.Q}
                             onClick={() => this.buttonPress('Q')}
                             buttonStatus={this.state.Q}
                             onStatus={this.props.allowRecord}
                         />
                         <DrumPad
                             letter="W"
-                            clip={amazonURL + audioclip.W + ".mp3"}
-                            clipName={audioclip.W}
                             onClick={() => this.buttonPress('W')}
                             buttonStatus={this.state.W}
                             onStatus={this.props.allowRecord}
                         />
                         <DrumPad
                             letter="E"
-                            clip={amazonURL + audioclip.E + ".mp3"}
-                            clipName={audioclip.E}
                             onClick={() => this.buttonPress('E')}
                             buttonStatus={this.state.E}
                             onStatus={this.props.allowRecord}
@@ -105,24 +94,18 @@ export default class KeyPad extends Component {
                     <Grid container spacing={0} justify="center">
                         <DrumPad
                             letter="A"
-                            clip={amazonURL + audioclip.A + ".mp3"}
-                            clipName={audioclip.A}
                             onClick={() => this.buttonPress('A')}
                             buttonStatus={this.state.A}
                             onStatus={this.props.allowRecord}
                         />
                         <DrumPad
                             letter="S"
-                            clip={amazonURL + audioclip.S + ".mp3"}
-                            clipName={audioclip.S}
                             onClick={() => this.buttonPress('S')}
                             buttonStatus={this.state.S}
                             onStatus={this.props.allowRecord}
                         />
                         <DrumPad
                             letter="D"
-                            clip={amazonURL + audioclip.D + ".mp3"}
-                            clipName={audioclip.D}
                             onClick={() => this.buttonPress('D')}
                             buttonStatus={this.state.D}
                             onStatus={this.props.allowRecord}
@@ -131,24 +114,18 @@ export default class KeyPad extends Component {
                     <Grid container spacing={0} justify="center">
                         <DrumPad
                             letter="Z"
-                            clip={amazonURL + audioclip.Z + ".mp3"}
-                            clipName={audioclip.Z}
                             onClick={() => this.buttonPress('Z')}
                             buttonStatus={this.state.Z}
                             onStatus={this.props.allowRecord}
                         />
                         <DrumPad
                             letter="X"
-                            clip={amazonURL + audioclip.X + ".mp3"}
-                            clipName={audioclip.X}
                             onClick={() => this.buttonPress('X')}
                             buttonStatus={this.state.X}
                             onStatus={this.props.allowRecord}
                         />
                         <DrumPad
                             letter="C"
-                            clip={amazonURL + audioclip.C + ".mp3"}
-                            clipName={audioclip.C}
                             onClick={() => this.buttonPress('C')}
                             buttonStatus={this.state.C}
                             onStatus={this.props.allowRecord}

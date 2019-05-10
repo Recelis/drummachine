@@ -32,7 +32,6 @@ export default class PlayButton extends Component {
         }, 500);
     }
     stopSequence(){
-        console.log('stopping playback');
         clearInterval(playback);
     }
     render(){

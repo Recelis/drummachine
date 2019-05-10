@@ -10,12 +10,9 @@ const DrumPad = (props)=> {
         <Grid item xs={4} className="drum-pad">
             {(props.onStatus)?
             <Button variant="outlined" className={props.buttonStatus} onClick = {props.onClick}>
-                <audio>
-                    <source src={props.clip}></source>
-                </audio>
                 {props.letter}
             </Button>:
-            <Button variant="outlined" className={props.buttonStatus}>
+            <Button variant="outlined" className={props.buttonStatus} disabled>
                 {props.letter}
             </Button>
             }
