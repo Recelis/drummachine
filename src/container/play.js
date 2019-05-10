@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-
+import { clickedSound, unclickedSound } from "../actions/index";
 import PlayButton from "../presentational/playbutton";
 
 const mapStateToProps = (state) => {
@@ -8,6 +8,17 @@ const mapStateToProps = (state) => {
     }
 }
 
-const Play = connect(mapStateToProps, null)(PlayButton);
+const mapDispatchToProps = dispatch => {
+    return {
+        setClicked: (key) => {
+            dispatch(clickedSound(key))
+        },
+        setUnclicked: (key) => {
+            dispatch(unclickedSound(key))
+        }
+    }
+}
+
+const Play = connect(mapStateToProps, mapDispatchToProps)(PlayButton);
 
 export default Play;

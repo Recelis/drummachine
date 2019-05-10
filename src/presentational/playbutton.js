@@ -23,9 +23,16 @@ export default class PlayButton extends Component {
         }
         let ii = 0;
         playback = setInterval(()=>{
+            if (ii >= seqLen) {
+                clearInterval(playback);
+                this.props.setUnclicked(sequenceKeys[ii-1]); // turn off
+                return;
+            }
             playSound(sequenceKeys[ii]);
+            this.props.setClicked(sequenceKeys[ii]);
+            this.props.setUnclicked(sequenceKeys[ii-1]);
             ii++;
-            if (ii >= seqLen) clearInterval(playback);
+            
         }, 500);
     }
     stopSequence(){
@@ -40,3 +47,5 @@ export default class PlayButton extends Component {
         )
     }
 }
+
+

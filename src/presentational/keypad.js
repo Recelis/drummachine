@@ -47,14 +47,12 @@ export default class KeyPad extends Component {
     let newKeyState = {};
     newKeyState[key] = "clicked";
     this.props.setClicked(key);
-    console.log("pressed key " + key);
     setTimeout(()=>{
         this.props.setUnclicked(key);
     },100);
   }
 
   render() {
-      console.log(this.props.keyState);
     return (
       <Grid container>
         <Grid item xs={12}>

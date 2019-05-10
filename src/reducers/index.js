@@ -86,12 +86,10 @@ let initialSounds = {
 function keyState(state = initialSounds, action) {
   switch (action.type) {
     case CLICKED_SOUND:
-      console.log(action.key);
       let clickedObj = {};
       clickedObj[action.key] = "clicked";
       return Object.assign({}, state, clickedObj);
     case UNCLICKED_SOUND:
-      console.log(action.key);
       let unclickObj = {};
       unclickObj[action.key] = "unclicked";
       return Object.assign({}, state, unclickObj);
