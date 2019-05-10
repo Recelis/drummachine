@@ -3,6 +3,8 @@ export const TOGGLE_RECORD = "TOGGLE_RECORD";
 export const DELETE_SOUND = "DELETE_SOUND";
 export const REFRESH_SEQUENCE = "REFRESH_SEQUENCE";
 export const READY_TO_DELETE = "READY_TO_DELETE";
+export const CLICKED_SOUND = "CLICKED_SOUND";
+export const UNCLICKED_SOUND = "UNCLICKED_SOUND";
 
 export const DRUM_MACHINE_OFF = false;
 export const DRUM_MACHINE_ON = true;
@@ -43,6 +45,20 @@ export function deleteSound(index){
 export function refreshSequence(){
     return{
         type:REFRESH_SEQUENCE
+    }
+}
+
+export function clickedSound(key){
+    return{
+        type: CLICKED_SOUND,
+        key
+    }
+}
+
+export function unclickedSound(key){
+    return{
+        type: UNCLICKED_SOUND,
+        key
     }
 }
 

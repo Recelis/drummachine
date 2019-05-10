@@ -17,17 +17,6 @@ import { audioObj, playSound } from "../audioclip";
 export default class KeyPad extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      Q: "unclicked",
-      W: "unclicked",
-      E: "unclicked",
-      A: "unclicked",
-      S: "unclicked",
-      D: "unclicked",
-      Z: "unclicked",
-      X: "unclicked",
-      C: "unclicked"
-    };
     // BINDINGS
     this.handleKeyPress = this.handleKeyPress.bind(this);
   }
@@ -57,15 +46,15 @@ export default class KeyPad extends Component {
     // call an action
     let newKeyState = {};
     newKeyState[key] = "clicked";
-    this.setState(newKeyState, () =>
-      setTimeout(() => {
-        newKeyState[key] = "unclicked";
-        this.setState(newKeyState);
-      }, 100)
-    );
+    this.props.setClicked(key);
+    console.log("pressed key " + key);
+    setTimeout(()=>{
+        this.props.setUnclicked(key);
+    },100);
   }
 
   render() {
+      console.log(this.props.keyState);
     return (
       <Grid container>
         <Grid item xs={12}>
@@ -73,19 +62,19 @@ export default class KeyPad extends Component {
             <DrumPad
               letter="Q"
               onClick={() => this.keyActivity("Q")}
-              buttonStatus={this.state.Q}
+              buttonStatus={this.props.keyState.Q}
               onStatus={this.props.allowRecord}
             />
             <DrumPad
               letter="W"
               onClick={() => this.keyActivity("W")}
-              buttonStatus={this.state.W}
+              buttonStatus={this.props.keyState.W}
               onStatus={this.props.allowRecord}
             />
             <DrumPad
               letter="E"
               onClick={() => this.keyActivity("E")}
-              buttonStatus={this.state.E}
+              buttonStatus={this.props.keyState.E}
               onStatus={this.props.allowRecord}
             />
           </Grid>
@@ -93,19 +82,19 @@ export default class KeyPad extends Component {
             <DrumPad
               letter="A"
               onClick={() => this.keyActivity("A")}
-              buttonStatus={this.state.A}
+              buttonStatus={this.props.keyState.A}
               onStatus={this.props.allowRecord}
             />
             <DrumPad
               letter="S"
               onClick={() => this.keyActivity("S")}
-              buttonStatus={this.state.S}
+              buttonStatus={this.props.keyState.S}
               onStatus={this.props.allowRecord}
             />
             <DrumPad
               letter="D"
               onClick={() => this.keyActivity("D")}
-              buttonStatus={this.state.D}
+              buttonStatus={this.props.keyState.D}
               onStatus={this.props.allowRecord}
             />
           </Grid>
@@ -113,19 +102,19 @@ export default class KeyPad extends Component {
             <DrumPad
               letter="Z"
               onClick={() => this.keyActivity("Z")}
-              buttonStatus={this.state.Z}
+              buttonStatus={this.props.keyState.Z}
               onStatus={this.props.allowRecord}
             />
             <DrumPad
               letter="X"
               onClick={() => this.keyActivity("X")}
-              buttonStatus={this.state.X}
+              buttonStatus={this.props.keyState.X}
               onStatus={this.props.allowRecord}
             />
             <DrumPad
               letter="C"
               onClick={() => this.keyActivity("C")}
-              buttonStatus={this.state.C}
+              buttonStatus={this.props.keyState.C}
               onStatus={this.props.allowRecord}
             />
           </Grid>

@@ -12,7 +12,7 @@ const DrumPad = (props)=> {
             <Button variant="outlined" className={props.buttonStatus} onClick = {props.onClick}>
                 {props.letter}
             </Button>:
-            <Button variant="outlined" className={props.buttonStatus} disabled>
+            <Button variant="outlined" className={props.buttonStatus}>
                 {props.letter}
             </Button>
             }
