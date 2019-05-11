@@ -29,8 +29,8 @@ export default class PlayButton extends Component {
                 return;
             }
             playSound(sequenceKeys[ii]);
-            this.props.setClicked(sequenceKeys[ii]);
             this.props.setUnclicked(sequenceKeys[ii-1]);
+            this.props.setClicked(sequenceKeys[ii]);
             ii++;
             
         }, 500);
