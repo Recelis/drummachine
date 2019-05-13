@@ -18,17 +18,38 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.root body{
+  margin:0px; 
+  padding:0px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#drum-machine{
+  margin:0px;
+  padding:0px;
+  text-align:center;
+}
+
+.Display-pattern{
+  width:80%;
+  height:30%;
+  min-height:100px;
+}
+
+.Display-tinyX{
+  width:15px;
+  height:15px;
+  top:0px;
+  font-size:15px;
+  color:rgb(107, 179, 0);
+  background-color:transparent;
+  border: solid 0 transparent;
+  text-align:left;
+  padding:0px;
+  margin:0px;
+}
+
+.Display-tinyX:hover{
+  text-shadow: yellow 5px 5px 5px;
 }
 
 .clicked{
