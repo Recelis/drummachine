@@ -33,6 +33,10 @@
   font-size:30px;
 }
 
+#display{
+  color:white;
+}
+
 .Display-pattern{
   width:80%;
   height:30%;
