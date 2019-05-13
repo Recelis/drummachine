@@ -54,70 +54,86 @@ export default class KeyPad extends Component {
 
   render() {
     return (
-      <Grid container>
-        <Grid item xs={12}>
-          <Grid container spacing={0} justify="right">
-            <DrumPad
-              letter="Q"
-              onClick={() => this.keyActivity("Q")}
-              buttonStatus={this.props.keyState.Q}
-              onStatus={this.props.allowRecord}
-            />
-            <DrumPad
-              letter="W"
-              onClick={() => this.keyActivity("W")}
-              buttonStatus={this.props.keyState.W}
-              onStatus={this.props.allowRecord}
-            />
-            <DrumPad
-              letter="E"
-              onClick={() => this.keyActivity("E")}
-              buttonStatus={this.props.keyState.E}
-              onStatus={this.props.allowRecord}
-            />
+      <Grid container className = "Keypad">
+        <Grid container xs={12} justify = "center">
+          <Grid spacing={0} item>
+                  <DrumPad
+                    letter="Q"
+                    onClick={() => this.keyActivity("Q")}
+                    buttonStatus={this.props.keyState.Q}
+                    onStatus={this.props.allowRecord}
+                  />
+            </Grid>
+            <Grid spacing={0} item>
+                  <DrumPad
+                    letter="W"
+                    onClick={() => this.keyActivity("W")}
+                    buttonStatus={this.props.keyState.W}
+                    onStatus={this.props.allowRecord}
+                  />
+            </Grid>
+            <Grid spacing={0} item>
+                <DrumPad
+                  letter="E"
+                  onClick={() => this.keyActivity("E")}
+                  buttonStatus={this.props.keyState.E}
+                  onStatus={this.props.allowRecord}
+                />
           </Grid>
-          <Grid container spacing={0} justify="center">
+          </Grid>
+          <Grid container xs = {12} justify = "center">
+          <Grid spacing={0} item>
             <DrumPad
               letter="A"
               onClick={() => this.keyActivity("A")}
               buttonStatus={this.props.keyState.A}
               onStatus={this.props.allowRecord}
             />
+            </Grid>
+            <Grid spacing={0} item>
             <DrumPad
               letter="S"
               onClick={() => this.keyActivity("S")}
               buttonStatus={this.props.keyState.S}
               onStatus={this.props.allowRecord}
             />
+            </Grid>
+            <Grid spacing={0} item>
             <DrumPad
               letter="D"
               onClick={() => this.keyActivity("D")}
               buttonStatus={this.props.keyState.D}
               onStatus={this.props.allowRecord}
             />
+            </Grid>
           </Grid>
-          <Grid container spacing={0} justify="center">
+          <Grid container xs = {12} justify = "center">
+          <Grid spacing={0} item>
             <DrumPad
               letter="Z"
               onClick={() => this.keyActivity("Z")}
               buttonStatus={this.props.keyState.Z}
               onStatus={this.props.allowRecord}
             />
+            </Grid>
+            <Grid spacing={0} item>
             <DrumPad
               letter="X"
               onClick={() => this.keyActivity("X")}
               buttonStatus={this.props.keyState.X}
               onStatus={this.props.allowRecord}
             />
+            </Grid>
+            <Grid spacing={0} item>
             <DrumPad
               letter="C"
               onClick={() => this.keyActivity("C")}
               buttonStatus={this.props.keyState.C}
               onStatus={this.props.allowRecord}
             />
+            </Grid>
           </Grid>
         </Grid>
-      </Grid>
     );
   }
 }

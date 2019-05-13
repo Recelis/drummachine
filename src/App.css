@@ -29,10 +29,25 @@
   text-align:center;
 }
 
+.Display-text{
+  font-size:30px;
+}
+
 .Display-pattern{
   width:80%;
   height:30%;
   min-height:100px;
+  background-color:rgb(29, 29, 29);
+  margin:0px;
+  padding:10px;
+  display:inline-block;
+  border-radius:5px;
+}
+
+.Display-sounds{
+  background-color:rgb(35, 35, 247) !important;
+  color:white !important;
+  margin:5px !important;
 }
 
 .Display-tinyX{
@@ -40,12 +55,16 @@
   height:15px;
   top:0px;
   font-size:15px;
-  color:rgb(107, 179, 0);
+  color:rgb(153, 255, 0);
   background-color:transparent;
   border: solid 0 transparent;
   text-align:left;
   padding:0px;
   margin:0px;
+}
+
+.Control-buttons{
+
 }
 
 .Display-tinyX:hover{
@@ -67,4 +86,9 @@
 
 .recordOff{
   background-color:white;
+}
+
+.Footer{
+  width:50%;
+  margin:0 auto;
 }

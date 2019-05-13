@@ -22,17 +22,19 @@ class App extends Component {
   render() {
     return (
       <div id="drum-machine">
-        <p id="display">Display Screen</p>
+        <p class="Display-text">Display Screen</p>
         <Display />
+        <div className = "Control-buttons">
         <Record />
         <Refresh />
+        </div>
         <Play />
         <div id="drumpads">
           <Keys />
         </div>
-
+        <br/>
         <footer>
-          <p>
+          <p className = "Footer">
             This project uses React, Redux, Sass for CSS variables or Material
             UI (styling typically comes last in the development process) and has
             been deliberately designed to do more than the User Stories
