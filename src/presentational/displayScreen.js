@@ -1,21 +1,30 @@
-import React from "react";
+import React, { Component } from "react";
 
-import Button from '@material-ui/core/Button';
 
- const DisplayScreen = (props)=>{
-    let sequence = props.sequence.map((sound, index)=>
-        (sound[Object.keys(sound)] === "closed") ?
-        <li key = {index} draggable><Button onClick = {()=>props.prepareToDelete(Object.keys(sound),index)}>{Object.keys(sound)}</Button></li>
-        :
-        <li key = {index} draggable>
-            <Button onClick = {()=>props.prepareToDelete(Object.keys(sound),index)}>{Object.keys(sound)}</Button> 
-            <Button onClick = {()=>props.deleteThisSound(index)}>X</Button>
+import { DragDropContextProvider, DragDropContext } from "react-dnd";
+import HTML5Backend from "react-dnd-html5-backend";
+import Sound from "./sound";
 
-        </li>
+class DisplayScreen extends Component {
+
+    moveSound = () =>{
+        console.log('drop sound');
+    }
+  render() {
+    console.log(this.props.sequence);
+    let sequence = this.props.sequence.map((sound, index) =>
+      <Sound 
+        sound = {sound}
+        index = {index}
+        handleDrop = {(id) => this.moveSound(id)}
+      />
     );
-    return(
-        <ul>{sequence}</ul>
-    )
+    return (
+      <div>
+        {sequence}
+      </div>
+    );
+  }
 }
 
-export default DisplayScreen;
+export default DragDropContext(HTML5Backend)(DisplayScreen);
