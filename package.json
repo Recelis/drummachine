@@ -12,7 +12,7 @@
     "redux": "^4.0.1",
     "redux-devtools-extension": "^2.13.6"
   },
-  "homepage": "https://recelis.github.io/drummachine",
+  "homepage": "https://recelis.github.io/drummachine/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
